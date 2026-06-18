@@ -1,0 +1,85 @@
+{% extends 'Admin/Adminindex.html' %}
+{% block body %}
+{#<table width="754" border="1">#}
+{#  <tr>#}
+{#    <td colspan="2">Doctor</td>#}
+{#    <td colspan="3"><label></label><label></label>#}
+{#        <form id="form1" name="form1" method="post" action="/searchFeedback">#}
+{#          <label>#}
+{#          <select name="select">#}
+{#              {% for i in data %}#}
+{#            <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#              {% endfor %}#}
+{#          </select>#}
+{#          </label>#}
+{#          <label>#}
+{#          <input type="submit" name="Submit" value="Search" />#}
+{#          </label>#}
+{#                </form>#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td width="144">Doctor</td>#}
+{#    <td width="144">User</td>#}
+{#    <td width="144">Date</td>#}
+{#    <td width="144">Feedback</td>#}
+{#    <td width="144">Rating</td>#}
+{#  </tr>#}
+{#{% for i in feed %}#}
+{#  <tr>#}
+{#    <td>{{ i.DOCTOR.name}}</td>#}
+{#    <td>{{i.USER.name}}</td>#}
+{#    <td>{{i.date}}</td>#}
+{#    <td>{{i.feedback}}</td>#}
+{#    <td>{{i.rating}}</td>#}
+{#  </tr>#}
+{#{% endfor %}#}
+{#</table>#}
+    <div class="container">
+    <!-- Doctor Selection Form -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <label><strong>Doctor</strong></label>
+            <form id="form1" name="form1" method="post" action="/searchFeedback">
+                <div class="input-group">
+                    <select name="select" class="form-select">
+                        {% for i in data %}
+                            <option value="{{ i.id }}">{{ i.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" name="Submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Feedback Table -->
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Feedback</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in feed %}
+                    <tr>
+                        <td>{{ i.DOCTOR.name }}</td>
+                        <td>{{ i.USER.name }}</td>
+                        <td>{{ i.date }}</td>
+                        <td>{{ i.feedback }}</td>
+                        <td>{{ i.rating }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{%  endblock %}

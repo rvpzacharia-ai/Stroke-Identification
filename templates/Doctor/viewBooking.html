@@ -1,0 +1,132 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'Doctor/index.html' %}
+{% block body %}
+
+<div class="container-fluid">
+  <form action="/search_booking" method="post">
+   <div class="row mb-3">
+  <div class="col-md-5"> <!-- Increased size from col-md-3 to col-md-5 -->
+    <label class="fw-bold">Date</label>
+    <input type="date" name="textfield" value="{{ date }}" class="form-control">
+  </div>
+  <div class="col-md-2 d-flex align-items-end">
+    <button type="submit" class="btn btn-primary w-100">Search</button>
+  </div>
+</div>
+
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-light">
+        <tr>
+          <th>Patient</th>
+          <th>Booking Date</th>
+          <th>Schedule Details</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in data %}
+        <tr>
+          <td>{{ i.USER.name }}</td>
+          <td>{{ i.date }}</td>
+          <td>
+            {{ i.SCHEDULE.from_Date }} - {{ i.SCHEDULE.to_Date }}<br>
+            {{ i.SCHEDULE.foom_time }} - {{ i.SCHEDULE.to_time }}
+          </td>
+          <td>{{ i.status }}</td>
+          <td>
+            <a href="/view_report/{{ i.id }}" class="btn btn-danger btn-sm">View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
+
+{#<table width="302" border="1">#}
+{#  <table  width="100" border="1" class="table table-bordered">#}
+{#  <tr>#}
+{#    <td width="42">Date</td>#}
+{#    <td colspan="2"><label>#}
+{#      <input type="date" name="textfield" value="{{ date }}" />#}
+{#    </label></td>#}
+{#    <td width="87"><label>#}
+{#      <input type="submit" name="Submit" value="Search"  />#}
+{#    </label></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Patient</td>#}
+{#    <td width="62">Booking Date</td>#}
+{#    <td width="62">Schedule details</td>#}
+{#    <td width="83">Status</td>#}
+{#    <td>&nbsp;</td>#}
+{#  </tr>#}
+{#    {%  for i in data %}#}
+{#  <tr>#}
+{#    <td>{{ i.USER.name }}</td>#}
+{#    <td>{{ i.date }}</td>#}
+{#    <td>{{ i.SCHEDULE.from_Date }}-{{ i.SCHEDULE.from_Date }}<br>{{ i.SCHEDULE.foom_time }}-{{ i.SCHEDULE.to_time }}</td>#}
+{#    <td>{{ i.status }}</td>#}
+{#    <td width="45"><a href="/view_report/{{ i.id }}" class="btn btn-danger">view</a></td>#}
+{#  </tr>#}
+{#{% endfor %}#}
+{#</table>#}
+
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center>
+<form action="/search_booking" method="post">
+  <table width="302" border="1">
+    <tr>
+      <td width="42">Date</td>
+      <td colspan="2">
+        <label>
+          <input type="date" name="textfield" value="{{ date }}" />
+        </label>
+      </td>
+      <td width="87">
+        <label>
+          <input type="submit" name="Submit" value="Search" />
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Patient</td>
+      <td width="62">Booking Date</td>
+      <td width="62">Schedule details</td>
+      <td width="83">Status</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ i.USER.name }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.SCHEDULE.from_Date }}-{{ i.SCHEDULE.to_Date }}<br>{{ i.SCHEDULE.foom_time }}-{{ i.SCHEDULE.to_time }}</td>
+      <td>{{ i.status }}</td>
+      <td><a href="/view_report/{{ i.id }}">View</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</center>
+</body>
+</html>-->

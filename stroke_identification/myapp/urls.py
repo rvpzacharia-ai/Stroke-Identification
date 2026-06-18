@@ -1,0 +1,67 @@
+from django.urls import path, include
+
+from myapp import views
+
+urlpatterns = [
+    path('',views.login2,name='login'),
+    path('ApproveDoctor',views.ApproveDoctor,name='ApproveDoctor'),
+    path('searchApproveDoctor',views.searchApproveDoctor,name='searchApproveDoctor'),
+    path('AdminHome',views.AdminHome,name='AdminHome'),
+    path('ManageSchedule',views.ManageSchedule,name='ManageSchedule'),
+    path('SendReply/<id>',views.SendReply,name='SendReply'),
+    path('ViewComplaint',views.ViewComplaint,name='ViewComplaint'),
+    path('viewFeedback',views.viewFeedback,name='viewFeedback'),
+    path('ViewUser',views.ViewUser,name='ViewUser'),
+    path('login_post',views.login_post,name='login_post'),
+    path('UserHome',views.UserHome,name='UserHome'),
+
+    path('DoctorHome',views.DoctorHome,name='DoctorHome'),
+    path('Doctor_signup',views.Doctor_signup,name='Doctor_signup'),
+    path('Doctor_signup_post',views.Doctor_signup_post,name='Doctor_signup_post'),
+     path('User_signup', views.User_signup, name='User_signup'),
+     path('User_signup_post', views.User_signup_post, name='User_signup_post'),
+    path('user_view_report', views.user_view_report, name='user_view_report'),
+    path('ViewComplaintSearch',views.ViewComplaintSearch,name='ViewComplaintSearch'),
+    path('searchuser',views.searchuser,name='searchuser'),
+    path('searchFeedback',views.searchFeedback,name='searchFeedback'),
+    path('SendFeedback/<id>',views.SendFeedback,name='SendFeedback'),
+    path('accept_doc/<id>',views.accept_doc,name='accept_doc'),
+    path('reject_doc/<id>',views.reject_doc,name='reject_doc'),
+    path('sendreply_post', views.sendreply_post, name='sendreply_post'),
+    path('ManageSchedule', views.ManageSchedule, name='ManageSchedule'),
+    # path('AddSchedule/<id>', views.AddSchedule, name='AddSchedule'),
+
+    path('AddSchedule', views.AddSchedule, name='AddSchedule'),
+    path('AddSchedule_post', views.AddSchedule_post, name='AddSchedule_post'),
+    path('docManageSchedule', views.docManageSchedule, name='docManageSchedule'),
+
+    path('viewbooking', views.viewbooking, name='viewbooking'),
+    path('viewDoctor', views.viewDoctor, name='viewDoctor'),
+    path('view_user_complaints',views.view_user_complaints, name='view_user_complaints'),
+    path('view_report/<id>', views.view_report, name='view_report'),
+    path('add_report', views.add_report, name='add_report'),
+    path('add_report_post',views.add_report_post, name='add_report_post'),
+    path('sendFeedback_post', views.sendFeedback_post, name='sendFeedback_post'),
+    path('ViewSchedule/<id>', views.ViewSchedule, name='ViewSchedule'),
+    path('deletedocschedule/<id>', views.deletedocschedule, name='deletedocschedule'),
+    path('Prediction', views.Prediction, name='Prediction'),
+    path('Prediction_post', views.Prediction_post, name='Prediction_post'),
+    path('Prediction2', views.Prediction2, name='Prediction2'),
+    path('Prediction2_POST', views.Prediction2_POST, name='Prediction2_POST'),
+    # path('Prediction3', views.Prediction3, name='Prediction3'),
+    # path('prediction3_post', views.prediction3_post, name='prediction3_post'),
+    #path('booking', views.booking, name='booking'),
+    #path('booking_Post', views.booking_Post, name='booking_Post'),
+    path('book_schedule/<id>', views.book_schedule, name='book_schedule'),
+    path('user_view_com', views.user_view_com, name='user_view_com'),
+    path('add_new', views.add_new, name='add_new'),
+    path('add_new_Post', views.add_new_Post, name='add_new_Post'),
+    path('forget_password', views.forget_password, name='forget_password'),
+
+    path('forgot_password', views.forgot_password, name='forgot_password'),
+    path('logout', views.logout, name='logout'),
+    path('search_booking', views.search_booking, name='search_booking'),
+   # path('reset_password', views.reset_password, name='reset_password'),
+    #path('reset_password_post', views.reset_password_post, name='reset_password_post')
+    ##path('admin_Dashboard', views.admin_Dashboard, name='admin_Dashboard')
+    ]

@@ -1,0 +1,161 @@
+{% extends 'User/risk.html' %}
+{% block body %}
+<form action="/prediction3_post" method="POST">
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr><th>Symptom</th><th>Input</th></tr>
+        </thead>
+         <tbody>
+            <tr>
+                <td>Chest Pain</td>
+                <td>
+                    <select name="chest_pain" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Shortness of Breath</td>
+                <td>
+                    <select name="shortness_of_breath" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Irregular Heartbeat</td>
+                <td>
+                    <select name="irregular_heartbeat" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Fatigue & Weakness</td>
+                <td>
+                    <select name="fatigue_weakness" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Dizziness</td>
+                <td>
+                    <select name="dizziness" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Swelling (Edema)</td>
+                <td>
+                    <select name="swelling_edema" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Pain in Neck/Jaw/Shoulder/Back</td>
+                <td>
+                    <select name="pain_neck_jaw" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Excessive Sweating</td>
+                <td>
+                    <select name="excessive_sweating" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Persistent Cough</td>
+                <td>
+                    <select name="persistent_cough" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Nausea/Vomiting</td>
+                <td>
+                    <select name="nausea_vomiting" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>High Blood Pressure</td>
+                <td>
+                    <select name="high_bp" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Chest Discomfort (Activity)</td>
+                <td>
+                    <select name="chest_discomfort_activity" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Cold Hands/Feet</td>
+                <td>
+                    <select name="cold_hands_feet" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Snoring/Sleep Apnea</td>
+                <td>
+                    <select name="snoring_apnea" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Anxiety/Feeling of Doom</td>
+                <td>
+                    <select name="anxiety" class="form-select">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" name="age" class="form-control" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+     <div class="mt-4 text-center">
+        <h3>Prediction Result:</h3>
+{#        <p>{{ res }}</p>#}
+         <p>{res}</p>
+    </div>
+{% endblock %}

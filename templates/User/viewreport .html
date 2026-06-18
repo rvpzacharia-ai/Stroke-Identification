@@ -1,0 +1,171 @@
+{#{% extends 'User/index.html' %}#}
+{#{%  block body %} <form action="/user_view_report" method="post" enctype="multipart/form-data">#}
+{##}
+{#    <table width="283" border="1" cellpadding="2">#}
+{#      <tr>      </tr>#}
+{#      <tr>#}
+{#        <td width="43">Doctor</td>#}
+{##}
+{#    <td width="62">Report type</td>#}
+{#      <td width="35">Date</td>#}
+{#      <td width="82">Report</td>#}
+{#    </tr>#}
+{#        {%  for i in data %}#}
+{#      <tr>#}
+{#        <td>{{ i.booking.SCHEDULE.DOCTOR.name }}</td>#}
+{#      <td>&nbsp;{{ i.report_typr }}</td>#}
+{#      <td>{{ i.date }}&nbsp;</td>#}
+{#      <td><img src="{{ i.report.url }}" height="100" width="100" alt=""/>&nbsp;</td>#}
+{#  </tr>#}
+{#            {%  endfor %}#}
+{#    </table>#}
+{#</form>#}
+{#{%  endblock %}#}
+{#{% extends 'User/index.html' %}#}
+{#{% block body %}#}
+{#<form action="/user_view_report" method="post" enctype="multipart/form-data">#}
+{#  <div class="container my-5">#}
+{#    <h2 class="text-center mb-4">User Report View</h2>#}
+{##}
+{#    <div class="table-responsive">#}
+{#      <table class="table table-bordered table-striped">#}
+{#        <thead class="table-dark">#}
+{#          <tr>#}
+{#            <th>Doctor</th>#}
+{#            <th>Report Type</th>#}
+{#            <th>Date</th>#}
+{#            <th>Report</th>#}
+{#          </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#          {% for i in data %}#}
+{#          <tr>#}
+{#            <td>{{ i.booking.SCHEDULE.DOCTOR.name }}</td>#}
+{#            <td>{{ i.report_typr }}</td> <!-- Corrected here -->#}
+{#            <td>{{ i.date }}</td>#}
+{#            <td>#}
+{#              <img src="{{ i.report.url }}" height="100" width="100" alt="Report Image" />#}
+{#            </td>#}
+{#          </tr>#}
+{#          {% endfor %}#}
+{#        </tbody>#}
+{#      </table>#}
+{#    </div>#}
+{#  </div>#}
+{#</form>#}
+{#{% endblock %}#}
+{##}
+{#<!-- Bootstrap 5 CDN (if not already included) -->#}
+{#<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ3QJz1b0HryJXJru3w9PyToaymF5rVmrDr4Zvye9QdxOZ0mObCZsZad+akF" crossorigin="anonymous">#}
+{#{% extends 'User/index.html' %}#}
+{#{% block body %}#}
+{#<form action="/user_view_report" method="post" enctype="multipart/form-data">#}
+{#  <div class="container my-5">#}
+{#    <h2 class="text-center mb-4">User Report View</h2>#}
+{##}
+{#    <div class="table-responsive">#}
+{#      <!-- Table starts here -->#}
+{#      <table class="table table-bordered table-striped table-hover custom-table">#}
+{#        <thead class="table-dark">#}
+{#          <tr>#}
+{#            <th class="fw-bold">Doctor</th>#}
+{#            <th class="fw-bold">Report Type</th>#}
+{#            <th class="fw-bold">Date</th>#}
+{#            <th class="fw-bold">Report</th>#}
+{#          </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#          {% for i in data %}#}
+{#          <tr>#}
+{#            <td class="fw-bold">{{ i.booking.SCHEDULE.DOCTOR.name }}</td>#}
+{#            <td class="fw-bold">{{ i.report_typr }}</td> <!-- Corrected here -->#}
+{#            <td class="fw-bold">{{ i.date }}</td>#}
+{#            <td>#}
+{#              <img src="{{ i.report.url }}" height="100" width="100" alt="Report Image" />#}
+{#            </td>#}
+{#          </tr>#}
+{#          {% endfor %}#}
+{#        </tbody>#}
+{#      </table>#}
+{#      <!-- Table ends here -->#}
+{#    </div>#}
+{#  </div>#}
+{#</form>#}
+{#{% endblock %}#}
+
+<!-- Bootstrap 5 CDN (if not already included) -->
+{#<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ3QJz1b0HryJXJru3w9PyToaymF5rVmrDr4Zvye9QdxOZ0mObCZsZad+akF" crossorigin="anonymous">#}
+
+<!-- Custom CSS for Darker Table Border -->
+
+
+
+{% extends 'User/index.html' %}
+{% block body %}
+<form action="/user_view_report" method="post" enctype="multipart/form-data" class="w-100">
+  <div class="container-fluid my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12">
+        <h2 class="text-center mb-4">View Report</h2>
+{#      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover custom-table">
+            <thead class="table-dark">
+              <tr>
+                <th class="fw-bold text-center">Doctor</th>
+                <th class="fw-bold text-center">Findings</th>
+                <th class="fw-bold text-center">Date</th>
+                <th class="fw-bold text-center">Report</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in data %}
+              <tr {% if loop.index is even %}class="even-row"{% else %}class="odd-row"{% endif %}>
+                <td class="fw-bold text-center">{{ i.booking.SCHEDULE.DOCTOR.name }}</td>
+                <td class="fw-bold text-center">{{ i.report_typr }}</td>
+                <td class="fw-bold text-center">{{ i.date }}</td>
+                <td class="text-center">
+                    <a href="{{ i.report.url }}"  download>   <img src="{{ i.report.url }}" class="img-fluid rounded border border-secondary shadow-sm p-1" style="max-height: 100px; max-width: 100px;" alt="Report Image" /></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<style>
+  .custom-table {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .table thead th {
+    background-color: #0056b3; /* Dark blue header */
+    color: white;
+    text-transform: uppercase;
+  }
+  .table tbody tr:hover {
+    background-color: #e0f2fe; /* light blue hover */
+  }
+  h2 {
+    font-weight: bold;
+    color: #0056b3; /* Dark blue heading */
+  }
+  form {
+    width: 100%;
+  }
+  .odd-row {
+    background-color: #e6f7ff; /* Lighter blue for odd rows */
+  }
+  .even-row {
+    background-color: #f8f9fa; /* White for even rows */
+  }
+</style>
+{% endblock %}
+
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+

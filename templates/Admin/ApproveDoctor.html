@@ -1,0 +1,144 @@
+{% extends 'Admin/Adminindex.html' %}
+{% block body %}
+<form action="/searchApproveDoctor" method="post">
+
+{#    <table width="349" border="1">#}
+{#        <tr>#}
+{#            <td>Doctor</td>#}
+{#            <td><label>#}
+{#                <input type="text" name="textfield"/>#}
+{#            </label></td>#}
+{#            <td><label>#}
+{#                <input type="submit" name="Search" value="Submit"/>#}
+{#            </label></td>#}
+{#        </tr>#}
+{#        {% for i in doc %}#}
+{#        <tr>#}
+{#            <td colspan="3">#}
+{#                <table width="253" height="177" border="1">#}
+{#                    <tr>#}
+{#                        <td>Image</td>#}
+{#                        <td> <img src="{{ i.image.url }}" style="height: 50px; width: 50px" alt=""/> </td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                        <td>Name </td>#}
+{#                        <td>{{ i.name }}</td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                        <td>Qualifiication</td>#}
+{#                        <td> {{ i.qualification }}</td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                        <td>Experience</td>#}
+{#                        <td> {{ i.experience }}</td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                        <td>Place </td>#}
+{#                        <td>{{ i.place }}</td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                        <td>{% if i.LOGIN.type == 'pending' %}#}
+{#                             <a href="accept_doc/{{ i.LOGIN.id }}">Accept</a><br><a href="/reject_doc/{{ i.LOGIN.id }}">Reject </a>#}
+{#                        {% else %}#}
+{#                        {{ i.LOGIN.type }}#}
+{#                        {% endif %}</td>#}
+{#                    </tr>#}
+{##}
+{#                </table>#}
+{#            </td>#}
+{#        </tr>#}
+{#    {% endfor %}#}
+{#    </table>#}
+<table class="table table-bordered">
+    <tr>
+        <td>Doctor</td>
+        <td><label><input type="text" name="textfield" class="form-control" /></label></td>
+        <td><label><input type="submit" name="Search" value="Submit" class="btn btn-primary" /></label></td>
+    </tr>
+</table>
+
+<div class="row">
+    {% for i in doc %}
+    <div class="col-md-4">
+        <div class="card">
+            <img src="{{ i.image.url }}" class="card-img-top" alt="Doctor Image" style="height: 150px; width: 150px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">{{ i.name }}</h5>
+                <p class="card-text"><strong>Qualification:</strong> {{ i.qualification }}</p>
+                <p class="card-text"><strong>Experience:</strong> {{ i.experience }}</p>
+                <p class="card-text"><strong>Place:</strong> {{ i.place }}</p>
+                <div>
+                    {% if i.LOGIN.type == 'pending' %}
+                    <a href="accept_doc/{{ i.LOGIN.id }}" class="btn btn-success btn-sm">Accept</a>
+                    <a href="/reject_doc/{{ i.LOGIN.id }}" class="btn btn-danger btn-sm">Reject</a>
+                    {% else %}
+                    <span class="badge bg-secondary">{{ i.LOGIN.type }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+</form>
+{% endblock %}
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>Untitled Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <form action="/searchApproveDoctor" method="post">
+            <table width="700" border="1">
+                <tr>
+                    <td>Doctor</td>
+                    <td><input type="text" name="textfield" /></td>
+                    <td><input type="submit" name="Search" value="Submit" /></td>
+                </tr>
+                {% for i in doc %}
+                <tr>
+                    <td colspan="3">
+                        <table width="100%" border="1">
+                            <tr>
+                                <td>Image</td>
+                                <td><img src="{{ i.image.url }}" alt="Doctor Image" /></td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{ i.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Qualification</td>
+                                <td>{{ i.qualification }}</td>
+                            </tr>
+                            <tr>
+                                <td>Experience</td>
+                                <td>{{ i.experience }}</td>
+                            </tr>
+                            <tr>
+                                <td>Place</td>
+                                <td>{{ i.place }}</td>
+                            </tr>
+                            <tr>
+                                <td>{% if i.LOGIN.type == 'pending' %}
+                                    <a href="accept_doc/{{ i.LOGIN.id }}">Accept</a><br><a href="/reject_doc/{{ i.LOGIN.id }}">Reject</a>
+                                    {% else %}
+                                    {{ i.LOGIN.type }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+</body>
+</html>-->
+

@@ -1,0 +1,100 @@
+{% extends 'Admin/Adminindex.html' %}
+{% block body %}
+{#<table width="283" border="1" cellpadding="2">#}
+{#  <form action="/ViewComplaintSearch" method="post">#}
+{#  <tr>#}
+{#    <td colspan="2"> Doctor</td>#}
+{##}
+{#    <td colspan="2"><label for="select"></label>#}
+{#      <select name="did" style="width : 100px;">#}
+{#{% for i in doctor %}#}
+{#        <option value="{{ i.id }}">{{ i.name  }}</option>#}
+{#     {% endfor %}#}
+{##}
+{#      </select></td>#}
+{#    <td><input type="submit" name="Submit" value="Search" id="Search" style="width:70px;"/></td>#}
+{#  </tr>#}
+{#</form>#}
+{#  <tr>#}
+{#    <td width="43">Doctor</td>#}
+{#    <td width="29">User</td>#}
+{#    <td width="29">Doctor</td>#}
+{#    <td width="62">Complaint</td>#}
+{##}
+{#    <td width="35">Date</td>#}
+{#<td>Reply</td>#}
+{##}
+{##}
+{#  </tr>#}
+{#{% for i in comp %}#}
+{#        <tr>#}
+{#        <td>{{ i.USER.name }}</td>#}
+{#        <td>{{ i.DOCTOR.name }}</td>#}
+{#        <td>{{ i.complaint }}</td>#}
+{##}
+{#        <td>{{ i.date }}</td>#}
+{#        <td>{% if i.reply == 'pending' %}#}
+{#        <div align="center"><a href="/SendReply/{{ i.id }}">Reply</a></div>#}
+{#        {% else %}#}
+{#        {{ i.reply }}#}
+{#        {% endif %}</td>#}
+{#        </tr>#}
+{#  {% endfor %}#}
+{#</table>#}<form action="/ViewComplaintSearch" method="post">
+    <div class="container">
+        <!-- Doctor Search Form -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <label for="select"><strong>Doctor</strong></label>
+            </div>
+            <div class="col-md-4">
+                <select name="did" class="form-select" style="width: 100%;">
+                    {% for i in doctor %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" name="Submit" value="Search" id="Search" class="btn btn-primary" style="width: 100%;" />
+            </div>
+        </div>
+
+        <!-- Complaints Table -->
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Doctor</th>
+                            <th>Complaint</th>
+                            <th>Date</th>
+                            <th>Reply</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in comp %}
+                            <tr>
+                                <td>{{ i.USER.name }}</td>
+                                <td>{{ i.DOCTOR.name }}</td>
+                                <td>{{ i.complaint }}</td>
+                                <td>{{ i.date }}</td>
+                                <td>
+                                    {% if i.reply == 'pending' %}
+                                        <div class="text-center">
+                                            <a href="/SendReply/{{ i.id }}" class="btn btn-warning btn-sm">Reply</a>
+                                        </div>
+                                    {% else %}
+                                        {{ i.reply }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

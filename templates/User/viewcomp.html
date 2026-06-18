@@ -1,0 +1,43 @@
+{% extends 'User/index.html' %}
+{% block body %}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <form action="/user_view_com" method="post">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Doctor</th>
+                                <th>Complaint</th>
+                                <th>Date</th>
+                                <th>Reply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in com %}
+                            <tr>
+                                <td>{{ i.DOCTOR.name }}</td>
+                                <td>{{ i.complaint }}</td>
+                                <td>{{ i.date }}</td>
+                                <td>{{ i.reply }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row justify-content-center mt-3">
+                    <div class="col-auto">
+                        <a href="/add_new" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

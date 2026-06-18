@@ -1,0 +1,64 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body>-->
+{% extends 'Doctor/index.html' %}
+{% block body %}
+
+<form action="/docManageSchedule" method="post">
+
+  <table class="table table-bordered">
+  <tr>
+    <td>date</td>
+    <td> time </td>
+    <td>days </td>
+    <td>&nbsp;</td>
+  </tr>
+      {% for i in data %}
+  <tr>
+    <td>{{ i.from_Date }} to  {{ i.to_Date }}&nbsp;</td>
+    <td>{{i.foom_time  }} to {{ i.to_time }}</td>
+    <td>{{ i.days }}</td>
+    <td><a href="/deletedocschedule/{{ i.id }}" class="btn btn-danger">delete</a></td>
+  </tr>
+      {% endfor %}
+  <tr>
+    <td colspan="4"><a href="/AddSchedule" class="btn btn-primary">addnew</a></td>
+    </tr>
+</table>
+</form>
+    {%  endblock  %}  <!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body>
+<center>
+<form action="/AddComplaint" method="post">
+  <table width="200" border="1">
+    <tr>
+      <td>Date</td>
+      <td>Time</td>
+      <td>Days</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ i.from_Date }} to {{ i.to_Date }}&nbsp;</td>
+      <td>{{ i.foom_time }} to {{ i.to_time }}</td>
+      <td>{{ i.days }}</td>
+      <td><a href="/deletedocschedule/{{ i.id }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="4"><a href="/AddSchedule">Add New</a></td>
+    </tr>
+  </table>
+</form>
+</center>
+</body>
+</html>-->

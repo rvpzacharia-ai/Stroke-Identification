@@ -1,0 +1,84 @@
+{% extends 'Doctor/index.html' %}
+{% block body %}
+
+<form action="/view_report" method="post" enctype="multipart/form-data">
+  <div class="container mt-3 d-flex justify-content-center">
+  <div class="card p-4" style="width: 90%; max-width: 1000px;">  <!-- Increased width and max-width -->
+
+      <!-- Table Header -->
+      <div class="row fw-bold border-bottom py-3 text-center">
+        <div class="col-md-4">Report</div>
+        <div class="col-md-4">Date</div>
+        <div class="col-md-4">Findings</div>
+      </div>
+
+      <!-- Table Content -->
+      {% for i in val %}
+      <div class="row border-bottom py-3 text-center">
+        <div class="col-md-4">
+          <a href="{{ i.report.url }}" target="_blank" class="btn btn-sm btn-outline-primary">View Report</a>
+        </div>
+        <div class="col-md-4">{{ i.date }}</div>
+        <div class="col-md-4">{{ i.report_typr }}</div>
+      </div>
+      {% endfor %}
+
+    </div> <!-- Close card div -->
+  </div>
+
+  <!-- Add Report Button (Slightly Moved Left Below the Card) -->
+ <!-- Container for Add Report Button -->
+<div class="container mt-3 d-flex">
+  <div class="ms-auto" style="margin-right: 65px;">
+    <a href="/add_report" class="btn btn-primary px-4">Add Report</a>
+  </div>
+</div>
+
+</form>
+
+<!-- CSS for Styling -->
+<style>
+  /* Increase card size */
+  .card {
+    width: 85%;
+    max-width: 900px; /* Increased max width */
+    margin: auto;
+  }
+</style>
+
+{% endblock %}
+
+
+
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center>
+<form action="/view_report" method="post" enctype="multipart/form-data">
+  <table width="200" border="1">
+    <tr>
+      <td>Report</td>
+      <td>Date</td>
+      <td>Findings</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td><img src="{{ i.report.url }}" alt="report" width="50px" height="50px" /></td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.report_typr }}</td>
+      <td>{{ i.findings }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="4"><a href="/add_report">Add</a></td>
+    </tr>
+  </table>
+</form>
+</center>
+</body>
+</html>-->

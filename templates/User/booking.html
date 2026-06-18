@@ -1,0 +1,92 @@
+{% extends 'User/index.html' %}
+{%  block body %}
+<form id="form1" name="form1" method="post" action="book_schedule">
+{#  <table width="328" border="1" cellpadding="2">#}
+{#    <tr>#}
+{#      <td width="93">Slot</td>#}
+{#      <td width="117">Date</td>#}
+{#      <td width="90">Status</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><label>#}
+{#          <input type="text" name="textfield" id="textfield" /></label></td>#}
+{#      <td>#}
+{#          <label>#}
+{#              <input type="date" name="textfield1" id="textfield1"/>#}
+{#      </label>#}
+{#      </td>#}
+{#      <td><label>#}
+{#      <input type="text" name="textfield2" id="label" /></label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="3"><label for="Submit"></label>#}
+{#        <input name="Submit" type="submit" id="Submit" value="OK" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+<table width="328" border="1" cellpadding="2" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; background-color: #f9f9f9;">
+    <tr style="background-color: #4CAF50; color: white; text-align: center;">
+        <td width="93" style="padding: 8px; font-weight: bold;">Slot</td>
+        <td width="117" style="padding: 8px; font-weight: bold;">Date</td>
+        <td width="90" style="padding: 8px; font-weight: bold;">Status</td>
+    </tr>
+    <tr style="text-align: center;">
+        <td style="padding: 8px;"><label><input type="text" name="textfield" id="textfield" /></label></td>
+        <td style="padding: 8px;">
+            <label><input type="date" name="textfield1" id="textfield1" /></label>
+        </td>
+        <td style="padding: 8px;"><label><input type="text" name="textfield2" id="label" /></label></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center; padding: 12px;">
+            <label for="Submit"></label>
+            <input name="Submit" type="submit" id="Submit" value="OK" style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer;"/>
+        </td>
+    </tr>
+</table>
+
+</form>
+{% endblock %}
+
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<center>
+  <form id="form1" name="form1" method="post" action="book_schedule">
+    <table width="328" border="1" cellpadding="2">
+      <tr>
+        <td width="93">Slot</td>
+        <td width="117">Date</td>
+        <td width="90">Status</td>
+      </tr>
+      <tr>
+        <td>
+          <label>
+            <input type="text" name="textfield" id="textfield" />
+          </label>
+        </td>
+        <td>
+          <label>
+            <input type="date" name="textfield1" id="textfield1" />
+          </label>
+        </td>
+        <td>
+          <label>
+            <input type="text" name="textfield2" id="textfield2" />
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center">
+          <input name="Submit" type="submit" id="Submit" value="OK" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</center>
+</body>
+</html>-->

@@ -1,0 +1,276 @@
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/AddSchedule_post">#}
+{#<table width="548" border="1">#}
+{#  <tr>#}
+{#    <td width="125">From Date</td>#}
+{#    <td width="407"><label>#}
+{#      <input type="date" name="textfield" />#}
+{#    </label></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td width="125">to Date</td>#}
+{#    <td width="407"><label>#}
+{#      <input type="date" name="textfield2" />#}
+{#    </label></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>From Time </td>#}
+{#    <td><label>#}
+{#      <input type="time" name="textfield3" />#}
+{#    </label></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>To Time </td>#}
+{#    <td><label>#}
+{#      <input type="time" name="textfield4" />#}
+{#    </label></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Days</td>#}
+{#      <td>#}
+{#    #}
+{#          <option selected="selected" >------</option>#}
+{#        </select  >#}
+{#          <label>#}
+{#          <input type="checkbox" name="checkbox" value="sunday" />#}
+{#          Sun     #}
+{#          <input type="checkbox" name="checkbox" value="monday" />#}
+{#          Mon #}
+{#          <input type="checkbox" name="checkbox" value="tuesday" />#}
+{#          Tues #}
+{#          <input type="checkbox" name="checkbox" value="wednesday" />#}
+{#          Wed #}
+{#          <input type="checkbox" name="checkbox" value="thorsday" />#}
+{#          Thurs #}
+{#          <input type="checkbox" name="checkbox" value="friday" />#}
+{#          Fri#}
+{#          <input type="checkbox" name="checkbox" value="saturday" />#}
+{#          Sat </label>#}
+{#          </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td colspan="2"><label>#}
+{#      <input type="submit" name="Submit" value="Submit" />#}
+{#    </label></td>#}
+{#    </tr>#}
+{#</table>#}
+{##}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+
+
+{% extends 'Doctor/index.html' %}
+{%  block body %}
+<script>
+function showDays() {
+    const fromDate = document.querySelector('input[name="textfield"]').value;
+    const toDate = document.querySelector('input[name="textfield2"]').value;
+    const daysContainer = document.getElementById("daysContainer");
+
+    if (fromDate && toDate) {
+        const start = new Date(fromDate);
+        const end = new Date(toDate);
+
+        if (start > end) {
+            alert("From Date cannot be greater than To Date!");
+            return;
+        }
+
+        // Clear previous results
+        daysContainer.innerHTML = "";
+
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let currentDate = start;
+
+        while (currentDate <= end) {
+            const dayName = dayNames[currentDate.getDay()];
+            const checkbox = `<input type="checkbox" name="days[]" value="${dayName.toLowerCase()}" /> ${dayName}<br>`;
+            daysContainer.innerHTML += checkbox;
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+    } else {
+        alert("Please select both From Date and To Date.");
+    }
+}
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/AddSchedule_post">
+{#<table width="548" border="1">#}
+{#    <table class="table table-bordered">#}
+{#  <tr>#}
+{#    <td width="125">From Date</td>#}
+{#    <td width="407">#}
+{#      <input type="date" name="textfield" onchange="showDays()" required/>#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td width="125">To Date</td>#}
+{#    <td width="407">#}
+{#      <input type="date" name="textfield2" onchange="showDays()" required />#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>From Time</td>#}
+{#    <td>#}
+{#      <input type="time" name="textfield3" required/>#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>To Time</td>#}
+{#    <td>#}
+{#      <input type="time" name="textfield4" required />#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Days</td>#}
+{#    <td id="daysContainer">#}
+{#      <!-- Dynamically generated checkboxes will appear here -->#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td colspan="2">#}
+{#      <input type="submit" name="Submit" value="Submit" />#}
+{#    </td>#}
+{#  </tr>#}
+{#</table>#}
+<div class="container mt-3">
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">From Date</label>
+    <div class="col-sm-9">
+      <input type="date" name="textfield" class="form-control" onchange="showDays()" min="{{ date }}" required/>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">To Date</label>
+    <div class="col-sm-9">
+      <input type="date" name="textfield2" class="form-control" onchange="showDays()" min="{{ date }}" required/>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">From Time</label>
+    <div class="col-sm-9">
+      <input type="time" name="textfield3" class="form-control"  required/>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">To Time</label>
+    <div class="col-sm-9">
+      <input type="time" name="textfield4" class="form-control" min="{{ date }}" required/>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Days</label>
+    <div class="col-sm-9" id="daysContainer">
+      <!-- Dynamically generated checkboxes will appear here -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <input type="submit" name="Submit" value="Submit" class="btn btn-primary" />
+    </div>
+  </div>
+</div>
+
+</form>
+{%  endblock %}
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Schedule Form</title>
+<script>
+function showDays() {
+    const fromDate = document.querySelector('input[name="textfield"]').value;
+    const toDate = document.querySelector('input[name="textfield2"]').value;
+    const daysContainer = document.getElementById("daysContainer");
+
+    if (fromDate && toDate) {
+        const start = new Date(fromDate);
+        const end = new Date(toDate);
+
+        if (start > end) {
+            alert("From Date cannot be greater than To Date!");
+            return;
+        }
+
+        // Clear previous results
+        daysContainer.innerHTML = "";
+
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let currentDate = start;
+
+        while (currentDate <= end) {
+            const dayName = dayNames[currentDate.getDay()];
+            const checkbox = `<input type="checkbox" name="days[]" value="${dayName.toLowerCase()}" /> ${dayName}<br>`;
+            daysContainer.innerHTML += checkbox;
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+    } else {
+        alert("Please select both From Date and To Date.");
+    }
+}
+</script>
+</head>
+
+<body>
+<center>
+<form id="form1" name="form1" method="post" action="/AddSchedule_post">
+<table width="548" border="1">
+  <tr>
+    <td width="125">From Date</td>
+    <td width="407">
+      <input type="date" name="textfield" onchange="showDays()" />
+    </td>
+  </tr>
+  <tr>
+    <td width="125">To Date</td>
+    <td width="407">
+      <input type="date" name="textfield2" onchange="showDays()" />
+    </td>
+  </tr>
+  <tr>
+    <td>From Time</td>
+    <td>
+      <input type="time" name="textfield3" />
+    </td>
+  </tr>
+  <tr>
+    <td>To Time</td>
+    <td>
+      <input type="time" name="textfield4" />
+    </td>
+  </tr>
+  <tr>
+    <td>Days</td>
+    <td id="daysContainer">
+      {#Dynamically generated checkboxes will appear here #}
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input type="submit" name="Submit" value="Submit" />
+    </td>
+  </tr>
+</table>
+</form>
+</center>
+</body>
+</html>-->

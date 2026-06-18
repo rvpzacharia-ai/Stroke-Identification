@@ -1,0 +1,136 @@
+{% extends 'Admin/Adminindex.html' %}
+{% block body %}
+{#<form id="form1" name="form1" method="post" action="/searchuser">#}
+{#<table width="200" border="1">#}
+{#  <tr>#}
+{#    <td>Name</td>#}
+{#    <td><label>#}
+{#      <input type="text" name="textfield" />#}
+{#    </label></td>#}
+{#    <td><label>#}
+{#      <input type="submit" name="Submit" value="Search" />#}
+{#    </label></td>#}
+{#  </tr>{% for i in data %}#}
+{#  <tr>#}
+{#    <td colspan="3"><table width="200" border="1">#}
+{#      <tr>#}
+{#        <td colspan="2">&nbsp;</td>#}
+{#        </tr>#}
+{##}
+{#      <tr>#}
+{#          <td>Name </td>#}
+{#          <td>{{ i.name }}</td>#}
+{#        </tr>#}
+{#      <tr>#}
+{#          <td>gender </td>#}
+{#          <td>{{ i.gender }}&nbsp;</td>#}
+{#        </tr>#}
+{#      <tr>#}
+{#          <td>date_of_birth</td>#}
+{#          <td>&nbsp;{{ i.date_of_birth }}</td>#}
+{#        </tr>#}
+{#      <tr>#}
+{#        <td>place</td>#}
+{#          <td>{{ i.place }}&nbsp;</td>#}
+{#        </tr>#}
+{#       <tr>#}
+{#           <td>phone_number</td>#}
+{#           <td> {{ i.phone_number }}&nbsp;</td>#}
+{#        </tr>#}
+{#       <tr>#}
+{#        <td>email </td>#}
+{#       <td>{{ i.email }}&nbsp;</td>#}
+{#        </tr>#}
+{#    </table></td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
+{##}
+{#  <p>&nbsp;</p>#}
+{#</form>#}
+<form id="form1" name="form1" method="post" action="/searchuser">
+    <div class="container">
+        <!-- Search Form -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" name="textfield" class="form-control" placeholder="Enter Name">
+                    <button type="submit" name="Submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Display -->
+        <div class="row">
+            {% for i in data %}
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.name }}</h5>
+                            <p><strong>Gender:</strong> {{ i.gender }}</p>
+                            <p><strong>Date of Birth:</strong> {{ i.date_of_birth }}</p>
+                            <p><strong>Place:</strong> {{ i.place }}</p>
+                            <p><strong>Phone Number:</strong> {{ i.phone_number }}</p>
+                            <p><strong>Email:</strong> {{ i.email }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</form>{%  endblock %}
+<<!--!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Untitled Document</title>
+</head>
+<body>
+    <div align="center">
+        <form id="form1" name="form1" method="post" action="/searchuser">
+            <table width="200" border="1" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td>Name</td>
+                    <td><label><input type="text" name="textfield" /></label></td>
+                    <td><label><input type="submit" name="Submit" value="Search" /></label></td>
+                </tr>
+                {% for i in data %}
+                <tr>
+                    <td colspan="3">
+                        <table width="200" border="1" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{ i.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>{{ i.gender }}&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Date of Birth</td>
+                                <td>{{ i.date_of_birth }}</td>
+                            </tr>
+                            <tr>
+                                <td>Place</td>
+                                <td>{{ i.place }}&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>{{ i.phone_number }}&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{ i.email }}&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+</body>
+</html>-->

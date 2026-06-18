@@ -1,0 +1,115 @@
+{#{% extends User/index.html %}#}
+{#{% block body %}#}
+{#<body>#}
+{#    <form action="/user_view_com" method="post">#}
+{#        <table class="table table-bordered">#}
+{#            <tr>#}
+{#                <td width="43">Doctor</td>#}
+{#                <td width="62">Complaint</td>#}
+{#                <td width="35">Date</td>#}
+{#                <td width="82">Reply</td>#}
+{#            </tr>#}
+{#            {% for i in com %}#}
+{#            <tr>#}
+{#                <td>{{ i.DOCTOR.name }}</td>#}
+{#                <td>{{ i.complaint }}</td>#}
+{#                <td>{{ i.date }}</td>#}
+{#                <td>{{ i.reply }}</td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#            <tr>#}
+{#                <td colspan="4" style="text-align: center;">#}
+{#                    <a href="/add_new" class="btn btn-primary">Add New</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#        </table>#}
+{#    </form>#}
+{#{% endblock %}#}
+{% extends 'User/index.html' %}
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: #fff;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .add-new-container {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .add-new-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        color: white;
+        background-color: #28a745;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .add-new-btn:hover {
+        background-color: #218838;
+    }
+</style>
+
+<div class="container">
+    <form action="/user_view_com" method="post">
+        <table>
+            <tr>
+                <th>Doctor</th>
+                <th>Complaint</th>
+                <th>Date</th>
+                <th>Reply</th>
+            </tr>
+            {% for i in com %}
+            <tr>
+                <td>{{ i.DOCTOR.name }}</td>
+                <td>{{ i.complaint }}</td>
+                <td>{{ i.date }}</td>
+                <td>{{ i.reply }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="add-new-container">
+            <a href="/add_new" class="add-new-btn">Add New</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

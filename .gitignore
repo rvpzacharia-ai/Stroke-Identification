@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Django
+db.sqlite3
+*.log
+assets/
+
+# Large model files
+*.h5
+*.pkl
+*.joblib
+
+# Media uploads
+media/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Byte-compiled
+*.pyc

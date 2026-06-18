@@ -1,0 +1,166 @@
+{#{% extends 'User/index.html' %}#}
+{#{%  block body %}#}
+{#<form id="form1" name="form1" method="post" action="/sendFeedback_post">#}
+{#  <table width="200" border="1" cellpadding="2">#}
+{#    <tr>#}
+{#      <td>Feedback</td>#}
+{#      <td><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Rating</td>#}
+{#      <td><label for="label"></label>#}
+{#      <input type="text" name="textfield2" id="label" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><label for="Submit"></label>#}
+{#      <input type="submit" name="Submit" value="Submit" id="Submit" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{##}
+{#{% endblock %}#}
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Feedback Form</title>
+</head>
+<body>
+<center>
+  <form id="form1" name="form1" method="post" action="/sendFeedback_post">
+    <table width="200" border="1" cellpadding="2">
+      <tr>
+        <td>Feedback</td>
+        <td>
+          <label for="textfield"></label>
+          <input type="text" name="textfield" id="textfield" />
+        </td>
+      </tr>
+      <tr>
+        <td>Rating</td>
+        <td>
+          <label for="label"></label>
+          <input type="text" name="textfield2" id="label" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <label for="Submit"></label>
+          <input type="submit" name="Submit" value="Submit" id="Submit" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</center>
+</body>
+</html>-->
+{#{% extends 'User/index.html' %}#}
+{#{% block body %}#}
+{#<form id="form1" name="form1" method="post" action="/sendFeedback_post">#}
+{#  <div class="container mt-4">#}
+{#    <div class="row justify-content-center">#}
+{#      <div class="col-lg-6 col-md-8 col-sm-12">#}
+{#        <table class="table table-bordered table-striped text-center">#}
+{#          <tr>#}
+{#            <td>Feedback</td>#}
+{#            <td>#}
+{#              <label for="textfield"></label>#}
+{#              <input type="text" class="form-control" name="textfield" id="textfield" />#}
+{#            </td>#}
+{#          </tr>#}
+{#          <tr>#}
+{#            <td>Rating</td>#}
+{#            <td>#}
+{#              <label for="label"></label>#}
+{#              <input type="text" class="form-control" name="textfield2" id="label" />#}
+{#            </td>#}
+{##}
+{#  <div class="star-rating">#}
+{#    <input type="radio" id="star5" name="rating" value="5" required /><label for="star5" title="5 stars">★</label>#}
+{#    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>#}
+{#    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>#}
+{#    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>#}
+{#    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>#}
+{#  </div>#}
+{#</td>#}
+{##}
+{#          </tr>#}
+{#          <tr>#}
+{#            <td colspan="2">#}
+{#              <label for="Submit"></label>#}
+{#              <input type="submit" class="btn btn-primary" name="Submit" value="Submit" id="Submit" />#}
+{#            </td>#}
+{#          </tr>#}
+{#        </table>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</form>#}
+{#{% endblock %}#}
+
+
+{% extends 'User/index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/sendFeedback_post">
+  <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4 shadow w-50"> <!-- Card centered with width control -->
+      <h4 class="text-center mb-3">Send Your Feedback</h4>
+      <table class="table table-bordered text-center">
+        <tbody>
+          <tr>
+            <td class="fw-bold">Feedback</td>
+            <td>
+              <input type="text" class="form-control" name="textfield" id="textfield" required />
+            </td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Rating</td>
+            <td>
+              <!-- Star Rating System -->
+              <div class="star-rating d-flex flex-row-reverse justify-content-center">
+                <input type="radio" id="star5" name="textfield2" value="5" required />
+                <label for="star5" title="5 stars">★</label>
+                <input type="radio" id="star4" name="textfield2" value="4" />
+                <label for="star4" title="4 stars">★</label>
+                <input type="radio" id="star3" name="textfield2" value="3" />
+                <label for="star3" title="3 stars">★</label>
+                <input type="radio" id="star2" name="textfield2" value="2" />
+                <label for="star2" title="2 stars">★</label>
+                <input type="radio" id="star1" name="textfield2" value="1" />
+                <label for="star1" title="1 star">★</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="submit" class="btn btn-primary w-100" name="Submit" value="Submit" id="Submit" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- End of card -->
+  </div>
+</form>
+
+<!-- Star Rating CSS -->
+<style>
+  .star-rating input[type="radio"] {
+    display: none;
+  }
+  .star-rating label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  .star-rating input[type="radio"]:checked ~ label {
+    color: gold;
+  }
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    color: gold;
+  }
+</style>
+{% endblock %}
+
+

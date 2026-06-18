@@ -1,0 +1,38 @@
+{#{% extends 'Admin/Adminindex.html' %}#}
+{#{% block body %}#}
+{#<form action="/sendreply_post" method="post">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>Reply</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><label>#}
+{#        <input type="submit" name="Submit" value="Save" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#  </table>#}
+{##}
+{##}
+{#</form>#}
+{#{% endblock %}#}
+{% extends 'Admin/Adminindex.html' %}
+{% block body %}
+<form action="/sendreply_post" method="post">
+  <div class="container mt-4">
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Reply</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="textfield" required />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <input type="submit" name="Submit" class="btn btn-primary" value="Save" />
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
